@@ -11,6 +11,7 @@ import pub.developers.forum.api.service.UserApiService;
 import pub.developers.forum.common.constant.Constant;
 import pub.developers.forum.common.enums.ErrorCodeEn;
 import pub.developers.forum.common.support.CheckUtil;
+import pub.developers.forum.common.support.StringUtil;
 import pub.developers.forum.portal.support.WebUtil;
 
 import javax.annotation.Resource;
@@ -92,12 +93,12 @@ public class UserRestController {
             }
         }
         CheckUtil.isFalse(isAllowType, ErrorCodeEn.FILE_UPLOAD_NOT_SUPPORT_IMG_TYPE);
-
+        String fileName = StringUtil.generateUUID() + originalFilename;
         FileUploadImgRequest uploadImgRequest = null;
         try {
             uploadImgRequest = FileUploadImgRequest.builder()
                     .base64(file.getBytes())
-                    .fileName(originalFilename)
+                    .fileName(fileName)
                     .build();
         } catch (Exception e) {
             CheckUtil.isTrue(true, ErrorCodeEn.FILE_UPLOAD_FAIL);

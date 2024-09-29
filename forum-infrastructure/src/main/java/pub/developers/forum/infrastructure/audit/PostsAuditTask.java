@@ -27,7 +27,7 @@ public class PostsAuditTask {
                 .auditState(AuditStateEn.WAIT.getValue())
                 .build());
         SafesUtil.ofList(postsDOS).forEach(postsDO -> {
-            postsDO.setAuditState(AuditStateEn.PASS.getValue());
+            postsDO.setAuditState(AuditStateEn.WAIT.getValue());
             postsDAO.update(postsDO);
         });
     }

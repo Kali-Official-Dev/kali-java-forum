@@ -66,6 +66,7 @@ public class FileRestController {
     @PostMapping("/upload")
     public ResultModel<String> upload(@RequestParam(value = "image") MultipartFile file, HttpServletRequest request) {
         String fileName = StringUtil.generateUUID();
+        fileName += file.getOriginalFilename();
         return uploadFile(file, fileName, request);
     }
 

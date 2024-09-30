@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
 <div th:replace="include/header :: head(~{::title}, ~{}, ~{})">
-    <title th:text="${posts.title}">开发者客栈</title>
+    <title th:text="${posts.title}"></title>
 </div>
 <div th:replace="include/posts-style :: posts_style"></div>
 <body>
